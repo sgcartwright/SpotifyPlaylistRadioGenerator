@@ -11,6 +11,7 @@ Spotify's removal of the Playlist Radio feature has made it increasingly challen
 - [Features](#features)
 - [Roadmap](#roadmap)
 - [Setup](#setup)
+- [Credit](#credit)
 
 ## Getting Started
 
@@ -63,3 +64,7 @@ Future improvements and features may include:
 ## Setup
 
 This project comes with a `setup.py` file, enabling easy installation of the required packages. Simply use the `pip install` command to install the prerequisites.
+
+## Credit
+
+Initial OAuth authorization code, as well as setup.py, taken from https://github.com/JasonLeviGoodison/SpotifyToYoutubeMP3.
