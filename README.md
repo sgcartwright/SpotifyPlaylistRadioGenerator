@@ -49,13 +49,16 @@ Before diving into this application, ensure you have the following prerequisites
 - **Create new Spotify playlists based on existing playlists.**
 - **Customize the name and length of the new playlist.**
 - **Handles Spotify user authentication and authorization.**
+- **User friendly app interface**
 
 ## Roadmap
 
 Future improvements and features may include:
 
-- Adding option for Artist radios
-- Hosting online
+- Adding option for artist radios
+- Adding option for genre radios
+- Adding option for playlists based on recent listening
+- Creating public webpage
 
 ## Setup
 
