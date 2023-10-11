@@ -21,8 +21,8 @@ url_error = False
 # Spotify OAuth Configuration
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id="9431127543be46348364af906f7b95ef", # Insert appropriate client id
-        client_secret="d60a280850a0453d9021f0f4cc5732f7", # Insert appropriate client secret
+        client_id="insert-client-id", # Insert appropriate client id
+        client_secret="insert-client-secret", # Insert appropriate client secret
         redirect_uri=url_for('redirectPage', _external=True),
         scope=["user-library-read", "playlist-modify-private"]
     )
