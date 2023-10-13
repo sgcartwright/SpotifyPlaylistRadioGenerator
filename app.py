@@ -21,8 +21,8 @@ url_error = False
 # Spotify OAuth Configuration
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id="insert-client-id", # Insert appropriate client id
-        client_secret="insert-client-secret", # Insert appropriate client secret
+        client_id="clientid", # Insert appropriate client id
+        client_secret="clientsecret", # Insert appropriate client secret
         redirect_uri=url_for('redirectPage', _external=True),
         scope=["user-library-read", "playlist-modify-private"]
     )
@@ -85,12 +85,13 @@ def get_playlist_tracks(playlist_choice, playlist_length):
     track_ids = [item['track']['id'] for item in results['items'] if item['track']['id']]
 
     # Retrieve recommended tracks to complete the playlist
-    while len(ids) < int(playlist_length):
+
+    while len(ids) < playlist_length:
         # Get a list of recent tracks from 'track_ids'
         seed_tracks = track_ids[-5:]
 
         # Set the limit to the minimum of playlist_length or 100
-        limit = min(int(playlist_length), 100)
+        limit = min(playlist_length, 100)
 
         # Get recommended tracks based on the recent tracks
         recommendations = sp.recommendations(seed_tracks=seed_tracks, limit=limit)
@@ -103,7 +104,7 @@ def get_playlist_tracks(playlist_choice, playlist_length):
         track_ids = track_ids[:-5]
 
     # Trim the 'ids' list to match 'playlist_length'
-    if len(ids) > int(playlist_length):
+    if len(ids) > playlist_length:
         ids = ids[:playlist_length]
 
 
@@ -127,14 +128,14 @@ def tracks_to_playlist(playlist_length, playlist_name):
 
 
     # Trim 'ids' list if it's longer than the desired playlist length
-    if len(ids) < int(playlist_length):
+    if len(ids) < playlist_length:
         ids = ids[:playlist_length]
     else:
         print("shorter)")
 
     sp = spotipy.Spotify(auth=get_token()['access_token'])
 
-    user_id = sp.me()['ids'] # Retrieves user id
+    user_id = sp.me()['id'] # Retrieves user id
 
     # Create a new private playlist with the specified name
     playlist = sp.user_playlist_create(user=user_id, name=playlist_name, public=False)['id']
@@ -221,7 +222,7 @@ def user_input():
         global playlist_length
         playlist_choice = request.form.get('input1')
         playlist_name = request.form.get('input2')
-        playlist_length = request.form.get('input3')
+        playlist_length = int(request.form.get('input3'))
         return redirect(url_for('make_playlist_csv', _external=True))
     return render_template('index.html')
 
