@@ -4,7 +4,6 @@ Spotify's removal of the Playlist Radio feature has made it increasingly challen
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -12,10 +11,6 @@ Spotify's removal of the Playlist Radio feature has made it increasingly challen
 - [Roadmap](#roadmap)
 - [Setup](#setup)
 - [Credit](#credit)
-
-## Getting Started
-
-To embark on your journey with the Spotify Playlist Radio Generator, follow these steps:
 
 ## Prerequisites
 
